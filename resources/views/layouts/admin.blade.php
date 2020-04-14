@@ -24,6 +24,9 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('admin/css/adminlte.min.css') }}">
 
+  <!-- Custom style -->
+  <link rel="stylesheet" href="{{ asset('admin/css/admin-app.css') }}">
+
   <!-- Css extra para esta seccion -->
   @yield('extra_css')
   <!-- Css extra para esta seccion end -->
@@ -72,6 +75,7 @@
 
 <!-- Bootstrap 4 -->
 <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 
 <!-- overlayScrollbars -->
 <script src="{{ asset('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>

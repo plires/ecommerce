@@ -1,6 +1,6 @@
 @extends('layouts/admin')
 
-@section('title', 'Listado de Usuarios')
+@section('title', 'Listado de Productos')
 
 <!-- Header Admin -->
 @section('navbar')
@@ -20,7 +20,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Listado de Usuarios</h1>
+            <h1 class="m-0 text-dark">Listado de Productos</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -46,8 +46,8 @@
 
                     <div class="card">
                       <div class="card-header">
-                        <a href="{{ url('admin/users/create') }}" class="btn btn-primary">
-                          <i class="fas fa-user-times mr-3"></i>Agregar Usuario
+                        <a href="{{ url('admin/products/create') }}" class="btn btn-primary">
+                          <i class="fas fa-user-times mr-3"></i>Agregar Producto
                         </a>
 
                         <div class="card-tools">
@@ -62,15 +62,15 @@
                       </div>
                       <!-- /.card-header -->
 
-                      @if (!empty($users))
+                      @if (!empty($products))
 
                         <div class="card-body table-responsive p-0" style="height: 100%;">
                           <table class="table table-head-fixed table-hover text-nowrap">
                               <thead>
                                   <tr>
                                       <th>Nombre</th>
-                                      <th>Email</th>
-                                      <th>Teléfono</th>
+                                      <th>Precio</th>
+                                      <th>Categoría</th>
                                       <th>Imagen</th>
                                       <th class="text-right">Opciones</th>
                                   </tr>
@@ -78,27 +78,27 @@
                               <tbody>
 
                                 
-                                @foreach ($users as $user)
+                                @foreach ($products as $product)
 
-                                  <tr data-id="{{ $user->id }}">
+                                  <tr data-id="{{ $product->id }}">
                                       <td>
-                                          <a href="{{ url('/admin/users/'.$user->id) }}" title="Ver Usuario">
-                                              {{ $user->name }}
+                                          <a href="{{ url('/admin/products/'.$product->id) }}" title="Ver Producto">
+                                              {{ $product->name }}
                                           </a>
                                       </td>
                                       <td>
-                                          <a href="{{ url('/admin/users/'.$user->id) }}" title="Ver Usuario">
-                                              {{ $user->email }}
+                                          <a href="{{ url('/admin/products/'.$product->id) }}" title="Ver Producto">
+                                              {{ $product->price }}
                                           </a>
                                       </td>
                                       <td>
-                                          <a href="{{ url('/admin/users/'.$user->id) }}" title="Ver Usuario">
-                                              {{ $user->phone }}
+                                          <a href="{{ url('/admin/products/'.$product->id) }}" title="Ver Producto">
+                                            {{ isset($product->category->name) ? $product->category->name : 'Sin Categoría' }}
                                           </a>
                                       </td>
                                       <td>
-                                          <a href="{{ url('/admin/users/'.$user->id) }}" title="Ver Usuario">
-                                              <img width="50" height="50" src="{{ isset($user->image) ? $user->image : url('admin/img/no-image.jpg') }}" alt="imagen del usuario {{ $user->id }}">
+                                          <a href="{{ url('/admin/products/'.$product->id) }}" title="Ver Producto">
+                                              <img width="50" height="50" src="{{ isset($product->images()->first()->image) ? $product->images()->first()->image : url('admin/img/no-image.jpg') }}" alt="imagen del producto {{ $product->id }}">
                                           </a>
                                       </td>
                                       <td class="text-right">
@@ -108,9 +108,9 @@
                                                 <span class="sr-only">Toggle Dropdown</span>
                                               </button>
                                                 <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-1px, 37px, 0px);">
-                                                  <a class="dropdown-item" href="{{ url('admin/users/'. $user->id) }}"><i class="fas fa-user-check mr-3"></i>Mostrar</a>
+                                                  <a class="dropdown-item" href="{{ url('admin/products/'. $product->id) }}"><i class="fas fa-user-check mr-3"></i>Mostrar</a>
                                                   <div class="dropdown-divider"></div>
-                                                  <a class="dropdown-item" href="{{ url('admin/users/'.$user->id.'/edit') }}"><i class="fas fa-user-edit mr-3"></i>Editar</a>
+                                                  <a class="dropdown-item" href="{{ url('admin/products/'.$product->id.'/edit') }}"><i class="fas fa-user-edit mr-3"></i>Editar</a>
                                                   <div class="dropdown-divider"></div>
                                                     <button type="submit" class="btn_delete btn-confirm dropdown-item"><i class="fas fa-user-times mr-3"></i>Eliminar
                                                     </button>
@@ -137,7 +137,7 @@
             <!-- Paginacion -->
             <div class="row">
               <div class="col-md-12 text-center m-auto">
-                {{ $users->links() }}
+                {{ $products->links() }}
               </div>
             </div>
             <!-- Paginacion end -->
@@ -147,7 +147,7 @@
 
     @include('admin.includes.modal-delete')
 
-    <form action="{{ url('/admin/users/:USER_ID/') }}" method="DELETE" id="form-delete">
+    <form action="{{ url('/admin/products/:PRODUCT_ID/') }}" method="DELETE" id="form-delete">
       <input name="_method" type="hidden" value="DELETE">
       {{ csrf_field() }}
     </form>
@@ -162,6 +162,6 @@
 <!-- Footer Admin end -->
 
 @section('scripts')
-  <script src="{{ asset('admin/js/users/index.js') }}"></script>
+  <script src="{{ asset('admin/js/products/index.js') }}"></script>
 @endsection
 

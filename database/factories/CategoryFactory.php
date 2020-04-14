@@ -9,6 +9,6 @@ $factory->define(Category::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
     	'description' => $faker->sentence(10),
-    	'image' => $faker->imageUrl($width = 640, $height = 480)
+    	'image' => 'http://via.placeholder.com/640x480'
     ];
 });
