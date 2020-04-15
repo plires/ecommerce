@@ -11,11 +11,13 @@
 |
 */
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth' /*, 'roles'*/]], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth' ,'admin']], function () {
 	Route::resource('users', 'User\UserController');
 	Route::resource('products', 'Product\ProductController');
 	Route::resource('categories', 'Category\CategoryController');
 });
+
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/', function () {
     //return view('admin.users.index');
