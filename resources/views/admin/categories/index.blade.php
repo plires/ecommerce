@@ -43,12 +43,13 @@
 
                   @include('admin.includes.messages')
                   @include('admin.includes.session-flash')
+                  @include('admin.categories.create')
 
                     <div class="card">
                       <div class="card-header">
-                        <a href="{{ url('admin/categories/create') }}" class="btn btn-primary">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">
                           <i class="fas fa-user-times mr-3"></i>Agregar Categoría
-                        </a>
+                        </button>
 
                         <div class="card-tools">
                           <div class="input-group input-group-sm" style="width: 150px;">
@@ -157,5 +158,6 @@
 
 @section('scripts')
   <script src="{{ asset('admin/js/categories/index.js') }}"></script>
+  <script src="{{ asset('admin/js/formsValidate.js') }}"></script>
 @endsection
 

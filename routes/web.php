@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/checkout/formulario', 'HomeController@formularioCheckaout')->name('checkout.formulario');
 Route::post('/checkout/test', 'HomeController@test')->name('checkout.test');

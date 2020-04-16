@@ -1,0 +1,9 @@
+@import url('normalize.min.css');
+@import url('fonts.css');
+@import url('bootstrap.min.css');
+@import url('animate.min.css');
+
+@import url('header.css');
+@import url('footer.css');
+
+body { font-family: 'Baloo Tamma 2', cursive; }

@@ -43,12 +43,13 @@
 
                   @include('admin.includes.messages')
                   @include('admin.includes.session-flash')
+                  @include('admin.products.create')
 
                     <div class="card">
                       <div class="card-header">
-                        <a href="{{ url('admin/products/create') }}" class="btn btn-primary">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">
                           <i class="fas fa-user-times mr-3"></i>Agregar Producto
-                        </a>
+                        </button>
 
                         <div class="card-tools">
                           <div class="input-group input-group-sm" style="width: 150px;">
@@ -163,5 +164,6 @@
 
 @section('scripts')
   <script src="{{ asset('admin/js/products/index.js') }}"></script>
+  <script src="{{ asset('admin/js/formsValidate.js') }}"></script>
 @endsection
 

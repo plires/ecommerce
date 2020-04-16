@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 
   <!-- CSRF Token -->
@@ -33,6 +33,24 @@
  
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
+
+  <!-- jQuery UI 1.11.4 -->
+  <script src="{{ asset('admin/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+
+  <!-- Bootstrap 4 -->
+  <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+
+  <!-- overlayScrollbars -->
+  <script src="{{ asset('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+
+  <!-- AdminLTE App -->
+  <script src="{{ asset('admin/js/adminlte.min.js') }}"></script>
+
+
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
@@ -67,25 +85,9 @@
   </div>
   <!-- Wrapper end -->
 
-<!-- jQuery -->
-<script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
-
-<!-- jQuery UI 1.11.4 -->
-<script src="{{ asset('admin/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-
-<!-- Bootstrap 4 -->
-<script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-
-<!-- overlayScrollbars -->
-<script src="{{ asset('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-
-<!-- AdminLTE App -->
-<script src="{{ asset('admin/js/adminlte.min.js') }}"></script>
-
-<!-- Scripts extra para esta seccion -->
-@yield('scripts')
-<!-- Scripts extra para esta seccion end -->
+  <!-- Scripts extra para esta seccion -->
+  @yield('scripts')
+  <!-- Scripts extra para esta seccion end -->
 
 </body>
 </html>
