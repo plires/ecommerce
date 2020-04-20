@@ -17,7 +17,18 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 	Route::resource('categories', 'Category\CategoryController');
 });
 
+Route::group(['namespace' => 'Front'], function () {
+	//Products
+	Route::get('/products/{product}', 'Product\ProductController@show');
+
+	// Cart
+	Route::get('/cart', 'CartDetail\CartDetailController@index');
+	Route::post('/cart', 'CartDetail\CartDetailController@store');
+	Route::delete('/cart/{id}', 'CartDetail\CartDetailController@destroy');
+});
+
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 
 Route::get('/', function () {
     //return view('admin.users.index');

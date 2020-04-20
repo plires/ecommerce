@@ -93,13 +93,13 @@
                                           </a>
                                       </td>
                                       <td>
-                                          <a href="{{ url('/admin/products/'.$product->id) }}" title="Ver Producto">
+                                          <a href="{{ url('/admin/categories/'.$product->category_id) }}" title="Ver Producto">
                                             {{ isset($product->category->name) ? $product->category->name : 'Sin Categoría' }}
                                           </a>
                                       </td>
                                       <td>
                                           <a href="{{ url('/admin/products/'.$product->id) }}" title="Ver Producto">
-                                              <img width="50" height="50" src="{{ isset($product->images()->first()->image) ? $product->images()->first()->image : url('admin/img/no-image.jpg') }}" alt="imagen del producto {{ $product->id }}">
+                                              <img width="50" height="50" src="{{ $product->featured_image_url }}" alt="imagen del producto {{ $product->id }}">
                                           </a>
                                       </td>
                                       <td class="text-right">

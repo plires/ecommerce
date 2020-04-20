@@ -22,7 +22,7 @@
                     <div class="card">
                       <div class="card-body text-center">
                         <img class="card-img-top mb-3" src="{{ isset($product->images()->first()->image) ? $product->images()->first()->image : url('admin/img/no-image.jpg') }}" alt="imagen del producto {{ $product->id }}" >
-                        <h5 class="card-title">{{ $product->name }}</h5>
+                        <h5 class="card-title"><a href="{{ url('products/' . $product->id) }}">{{ $product->name }}</a></h5>
                         <a href="#">{{ $product->category->name }}</a>
                         <p class="card-text">{{ $product->description }}</p>
                         <a href="#" class="btn btn-primary">Comprar</a>
